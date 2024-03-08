@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmxktdw2hu6h5"]
+
+[ext_resource type="Script" path="res://lib/seed_shop_redmelon.gd" id="1_cwvqu"]
+[ext_resource type="Texture2D" uid="uid://cekd4ssmg16nm" path="res://assets/sprites/plants/Basic_Plants.png" id="2_d0nja"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j22v"]
+atlas = ExtResource("2_d0nja")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pl1c7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j22v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j21b8"]
+size = Vector2(12, 13)
+
+[node name="seed_shop_redmelon" type="StaticBody2D"]
+script = ExtResource("1_cwvqu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pl1c7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_j21b8")

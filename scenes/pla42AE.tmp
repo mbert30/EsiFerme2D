@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://chrn3pafbcupa"]
+
+[ext_resource type="Script" path="res://lib/player.gd" id="1_7co5u"]
+[ext_resource type="SpriteFrames" uid="uid://c382r156nqxxd" path="res://assets/sprites/chars/player.tres" id="2_i0os1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41ao5"]
+size = Vector2(64, 64)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_7co5u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_i0os1")
+animation = &"move_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_41ao5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+position = Vector2(32, 0)
+target_position = Vector2(0, -32)
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+position = Vector2(32, 64)
+target_position = Vector2(0, 32)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 32)
+target_position = Vector2(-32, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(64, 32)
+target_position = Vector2(32, 0)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_player_animation_finished"]

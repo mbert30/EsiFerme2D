@@ -1,0 +1,217 @@
+[gd_scene load_steps=22 format=3 uid="uid://cltsfgogq7k1u"]
+
+[ext_resource type="Texture2D" uid="uid://cqw27w15s1tif" path="res://assets/hud/axe.png" id="1_aiv0e"]
+[ext_resource type="Texture2D" uid="uid://cwyuqjkp5qnyy" path="res://assets/hud/watercan.png" id="2_77yht"]
+[ext_resource type="Texture2D" uid="uid://mctdrsk8ye24" path="res://assets/hud/hoe.png" id="3_r6u44"]
+[ext_resource type="Texture2D" uid="uid://ds17iubpxsrbb" path="res://assets/hud/seed_layout.png" id="4_v5jo4"]
+[ext_resource type="Texture2D" uid="uid://bdd5v0rggk2ub" path="res://assets/hud/wheat_seed.png" id="5_qt1pi"]
+[ext_resource type="Texture2D" uid="uid://owjq7yh3a7d8" path="res://assets/hud/hand.png" id="5_y7x5h"]
+[ext_resource type="Texture2D" uid="uid://dftshcqgvjs3x" path="res://assets/hud/coin4_16x16.png" id="7_0ixpg"]
+[ext_resource type="Script" path="res://lib/pause_screen.gd" id="8_jrpri"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4qius"]
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_jfpwn"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpv2w"]
+atlas = ExtResource("7_0ixpg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp8fm"]
+atlas = ExtResource("7_0ixpg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtb4b"]
+atlas = ExtResource("7_0ixpg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa8ep"]
+atlas = ExtResource("7_0ixpg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_illxi"]
+atlas = ExtResource("7_0ixpg")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go33u"]
+atlas = ExtResource("7_0ixpg")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx2a2"]
+atlas = ExtResource("7_0ixpg")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq6re"]
+atlas = ExtResource("7_0ixpg")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjevd"]
+atlas = ExtResource("7_0ixpg")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_104j4"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_tpv2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp8fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtb4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa8ep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_illxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go33u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx2a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq6re")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjevd")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nnow4"]
+font_size = 50
+
+[node name="Hud" type="Control"]
+z_index = 50
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu_seed" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1760.0
+offset_top = 48.0
+offset_right = 1800.0
+offset_bottom = 88.0
+scale = Vector2(2, 2)
+texture = ExtResource("4_v5jo4")
+
+[node name="hud_axe" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 40.0
+offset_right = 188.0
+offset_bottom = 61.0
+scale = Vector2(4, 4)
+texture = ExtResource("1_aiv0e")
+stretch_mode = 2
+
+[node name="hud_watercan" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 40.0
+offset_right = 300.0
+offset_bottom = 61.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_77yht")
+stretch_mode = 2
+
+[node name="hud_hoe" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 40.0
+offset_right = 412.0
+offset_bottom = 61.0
+scale = Vector2(4, 4)
+texture = ExtResource("3_r6u44")
+stretch_mode = 2
+
+[node name="hud_hand" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 80.0
+scale = Vector2(4, 4)
+texture = ExtResource("5_y7x5h")
+stretch_mode = 2
+
+[node name="hud_seed" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1776.0
+offset_top = 64.0
+offset_right = 1816.0
+offset_bottom = 104.0
+texture = ExtResource("5_qt1pi")
+
+[node name="hud_nbSeed" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1808.0
+offset_top = 88.0
+offset_right = 1827.0
+offset_bottom = 111.0
+text = "99"
+label_settings = SubResource("LabelSettings_4qius")
+
+[node name="hud_coin" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1720.0
+offset_top = 992.0
+offset_right = 1812.0
+offset_bottom = 1047.0
+text = "9999"
+label_settings = SubResource("LabelSettings_jfpwn")
+
+[node name="menu_coin" type="AnimatedSprite2D" parent="."]
+position = Vector2(1848, 1016)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_104j4")
+animation = &"coin"
+frame_progress = 0.528401
+
+[node name="pause_screen" type="PanelContainer" parent="."]
+process_mode = 3
+visible = false
+z_index = 60
+layout_mode = 0
+offset_left = 720.0
+offset_top = 405.0
+offset_right = 1200.0
+offset_bottom = 675.0
+script = ExtResource("8_jrpri")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_screen"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="pause" type="Label" parent="pause_screen/VBoxContainer"]
+layout_mode = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_nnow4")
+horizontal_alignment = 1
+
+[node name="button_resume" type="Button" parent="pause_screen/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="button_save" type="Button" parent="pause_screen/VBoxContainer"]
+layout_mode = 2
+text = "Save and quit"
+
+[connection signal="pressed" from="pause_screen/VBoxContainer/button_resume" to="pause_screen" method="_on_button_resume_pressed"]
+[connection signal="pressed" from="pause_screen/VBoxContainer/button_save" to="pause_screen" method="_on_button_save_pressed"]
